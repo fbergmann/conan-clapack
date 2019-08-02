@@ -83,4 +83,4 @@ conan_basic_setup()''')
 
         self.cpp_info.libs = [libfile1, libfile2, libfile3]
 
-        #self.cpp_info.defines = []
+        self.cpp_info.defines = ['HAVE_BLASWRAP_H', 'HAVE_F2C_H', 'HAVE_CLAPACK_H', 'NO_BLAS_WRAP']
