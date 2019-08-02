@@ -73,9 +73,9 @@ conan_basic_setup()''')
         libfile3 = "f2c"
 
         if not self.settings.os == "Windows":
-            libfile1 = "lib" + libfile + ".a"
-            libfile2 = "lib" + libfile + ".a"
-            libfile3 = "lib" + libfile + ".a"
+            libfile1 = "lib" + libfile1 + ".a"
+            libfile2 = "lib" + libfile2 + ".a"
+            libfile3 = "lib" + libfile3 + ".a"
         else:
             libfile1 += ".lib"
             libfile2 += ".lib"
