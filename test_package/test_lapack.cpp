@@ -9,20 +9,27 @@ extern "C" {
 extern int dgeev_(char*,char*,int*,double*,int*,double*, double*, double*, int*, double*, int*, double*, int*, int*);
 }
 
-int main(int argc, char** argv){
-
+int main(int argc, const char* argv[])
+{
+  std::string fileName;
   // check for an argument
   if (argc<2){
-    cout << "Usage: " << argv[0] << " " << " filename" << endl;
-    return -1;
+    fileName = "matrix.txt";
+    //cout << "Usage: " << argv[0] << " " << " filename" << endl;
+    //return -1;
   }
+  else
+  {
+    fileName = argv[1];
+  }
+  
 
   int n,m;
   double *data;
 
   // read in a text file that contains a real matrix stored in column major format
   // but read it into row major format
-  ifstream fin(argv[1]);
+  ifstream fin(fileName.c_str());
   if (!fin.is_open()){
     cout << "Failed to open " << argv[1] << endl;
     return -1;
