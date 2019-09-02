@@ -32,10 +32,11 @@ int main(int argc, const char* argv[])
   // but read it into row major format
   ifstream fin(fileName.c_str());
   if (!fin.is_open()){
-    cout << "Failed to open " << argv[1] << endl;
+    cout << "Failed to open " << fileName << endl;
     return -1;
   }
   fin >> n >> m;  // n is the number of rows, m the number of columns
+  cout << "Matrix is " << n << " x " << m << endl;
   data = new double[n*m];
   for (integer i=0;i<n;i++){
     for (integer j=0;j<m;j++){
