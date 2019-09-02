@@ -1,12 +1,13 @@
 #include <iostream>
 #include <fstream>
 
+#include <f2c.h>
 
 using namespace std;
 
 // dgeev_ is a symbol in the LAPACK library files
 extern "C" {
-extern int dgeev_(char*,char*,int*,double*,int*,double*, double*, double*, int*, double*, int*, double*, int*, int*);
+extern int dgeev_(char*,char*,integer*,double*,integer*,double*, double*, double*, integer*, double*, integer*, double*, integer*, integer*);
 }
 
 int main(int argc, const char* argv[])
@@ -24,7 +25,7 @@ int main(int argc, const char* argv[])
   }
   
 
-  int n,m;
+  integer n,m;
   double *data;
 
   // read in a text file that contains a real matrix stored in column major format
@@ -36,8 +37,8 @@ int main(int argc, const char* argv[])
   }
   fin >> n >> m;  // n is the number of rows, m the number of columns
   data = new double[n*m];
-  for (int i=0;i<n;i++){
-    for (int j=0;j<m;j++){
+  for (integer i=0;i<n;i++){
+    for (integer j=0;j<m;j++){
       fin >> data[j*n+i];
     }
   }
@@ -58,10 +59,10 @@ int main(int argc, const char* argv[])
   double *eigReal=new double[n];
   double *eigImag=new double[n];
   double *vl,*vr;
-  int one=1;
-  int lwork=6*n;
+  integer one=1;
+  integer lwork=6*n;
   double *work=new double[lwork];
-  int info;
+  integer info;
 
   // calculate eigenvalues using the DGEEV subroutine
   dgeev_(&Nchar,&Nchar,&n,data,&n,eigReal,eigImag,
