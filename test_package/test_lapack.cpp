@@ -41,8 +41,11 @@ int main(int argc, const char* argv[])
   for (integer i=0;i<n;i++){
     for (integer j=0;j<m;j++){
       fin >> data[j*n+i];
+      cout << data[j*n+i] << '\t';
     }
+    cout << endl;
   }
+  cout << endl;
   if (fin.fail() || fin.eof()){
     cout << "Error while reading " << argv[1] << endl;
     return -1;
